@@ -24,7 +24,7 @@ jobs:
           sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends qemu-user-static
 
       - run: |
-          git clone https://github.com/gardenlinux/gardenlinux
+          git clone --depth=1 --branch=1312.2 https://github.com/gardenlinux/gardenlinux
           cd gardenlinux
-          git checkout 98e59d570b200a16ae01228ef51acf57060a8fa1 # one commit before introducting crun patch
+          git commit -am "Version 1312.2"
           ./build base-amd64 base-arm64

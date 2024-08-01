@@ -1,0 +1,14 @@
+name: Print crun version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show crun version
+        shell: bash
+        run: |
+          crun --version

@@ -1,0 +1,27 @@
+name: GL test
+
+on:
+  on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello from Octo Organization
+
+    - name: install required packages
+      shell: bash
+      run: |
+        sudo rm -rf /{usr/{local/{lib/{android,heroku},.ghcup,share/{dotnet,powershell,miniconda,swift}},share/{dotnet,miniconda,swift}},opt/{hostedtoolcache,microsoft},imagegeneration}
+        sudo docker system prune -a -f
+        sudo apt-get update
+        sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends qemu-user-static
+
+    - run: |
+        git clone https://github.com/gardenlinux/gardenlinux
+        cd gardenlinux
+        ./build base-amd64 base-arm64

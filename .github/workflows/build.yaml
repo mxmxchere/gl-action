@@ -24,6 +24,8 @@ jobs:
           sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends qemu-user-static
 
       - run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git clone --depth=1 --branch=1312.2 https://github.com/gardenlinux/gardenlinux
           cd gardenlinux
           git commit -am "Version 1312.2"

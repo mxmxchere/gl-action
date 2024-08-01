@@ -10,8 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo Hello from Octo Organization
+      - name: Show crun version
+        shell: bash
+        run: |
+          crun --version
 
       - name: install required packages
         shell: bash
